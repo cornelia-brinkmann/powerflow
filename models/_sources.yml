@@ -1,0 +1,14 @@
+sources:
+  - name: powerflow
+    database: powerflow
+    schema: public
+    tables:
+      - name: registrations_raw
+
+      - name: transactions
+
+      - name: appsflyer_raw
+
+      - name: google_ads
+
+    
