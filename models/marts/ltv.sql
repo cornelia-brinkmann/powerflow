@@ -16,9 +16,9 @@ WITH date_spine AS (
         start_date=" '" ~ start_date ~ "' ",
         end_date="CURRENT_DATE"
     ) }}
-),
+)
 
-user_days AS (
+,user_days AS (
     SELECT 
         r.user_id,
         r.registration_date,
@@ -41,6 +41,8 @@ daily_spend AS (
 SELECT 
     u.user_id,
     u.date,
+    u.registration_date,
+    d.transaction_date,
     COALESCE (d.daily_spend, 0) AS daily_spend,
     -- cumulative LTV
     SUM (COALESCE (d.daily_spend, 0)) OVER (PARTITION BY u.user_id ORDER BY u.date) AS ltv,
@@ -50,6 +52,7 @@ FROM user_days u
 LEFT JOIN daily_spend d
     ON u.user_id = d.user_id
         AND u.date = d.transaction_date
+ORDER BY user_id, date
 
 
 --user_id,
