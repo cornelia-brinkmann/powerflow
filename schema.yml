@@ -1,0 +1,43 @@
+sources:
+  - name: powerflow
+    database: powerflow
+    schema: public
+    tables:
+      - name: registrations_raw
+
+      - name: transactions
+
+      - name: appsflyer_raw
+
+      - name: google_ads
+models:
+  - name: stg_powerflow_registrations_raw
+    columns:
+    tests: # tests that would be run on the column
+      - unique
+
+  - name: int_users_with_attribution 
+    columns: 
+      - name: device_id
+        tests:
+          - unique
+          - not_null
+      - name: attribution_cost
+        tests:
+          - not_null
+  - name: ltv
+    columns: 
+      - name: registration_date
+        tests:
+            - not_null
+      - name: transaction_date
+        tests:
+           - not_null
+  - name: roi
+    columns: 
+      - name: attribution_cost
+        tests:
+            - not_null
+      - name: roi
+        tests:
+           - not_null
