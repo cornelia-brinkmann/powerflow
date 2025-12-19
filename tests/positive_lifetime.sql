@@ -1,5 +1,5 @@
 select
     *
    
-from {{ ref("ltv") }} as l
+from {{ ref("ltv") }} 
 where daily_spend<0
