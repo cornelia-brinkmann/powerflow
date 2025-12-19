@@ -1,0 +1,29 @@
+models:
+  - name: stg_powerflow_registrations_raw
+    description: description
+    columns:
+    - name: user_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+  
+  - name: stg_powerflow_appsflyer_raw
+    description: description
+    columns:
+    - name: device_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+
+  - name: stg_powerflow_google_ads
+    description: description
+    columns:
+    - name: device_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null   
+
+  

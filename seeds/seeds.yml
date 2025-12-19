@@ -1,0 +1,9 @@
+seeds:
+  - name: campaign_cost
+    description: fixed costs for each campaign_id
+    columns:
+      - name: campaign_id
+        description: campaign_id number
+      
+      - name: cost
+        description: total cost for each campaign_id (fixed costs)

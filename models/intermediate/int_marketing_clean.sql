@@ -1,3 +1,5 @@
+{{config(materialized='table')}}
+
 select *
 from {{ ref("stg_powerflow__appsflyer_raw") }}
 union all

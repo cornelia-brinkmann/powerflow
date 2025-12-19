@@ -1,0 +1,13 @@
+models:
+  - name: int_users_with_attribution 
+    description: description
+    columns: 
+      - name: device_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: attribution_cost
+        tests:
+          - not_null
+  
