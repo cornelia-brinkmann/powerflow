@@ -1,4 +1,5 @@
 SELECT
     days_since_registration
 FROM {{ ref('ltv') }}
-WHERE days_since_registration IS NULL
+WHERE days_since_registration IS NULL 
+OR days_since_registration < 0

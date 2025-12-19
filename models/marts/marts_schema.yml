@@ -1,0 +1,28 @@
+models:
+  - name: ltv
+    description: description
+    columns: 
+      - name: daily_spend
+        description: daily spend per user
+        tests:
+          - not_null
+      - name: days_since_registration
+        description: days between registration and transaction
+        tests:
+          - not_null
+      - name: ltv
+        description: lifetime value
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+                arguments:
+                  min_value: 0
+
+  - name: roi
+    columns: 
+      - name: attribution_cost
+        tests:
+            - not_null
+      - name: roi
+        tests:
+           - not_null
